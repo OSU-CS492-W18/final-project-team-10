@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">SnapSearch</string>
+
+    <!--Main Activity-->
+    <string name="btn_new_image">Snap and Analyse a new image</string>
+    <string name="btn_saved_images">View saved images</string>
 </resources>
