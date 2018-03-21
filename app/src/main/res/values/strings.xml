@@ -4,4 +4,8 @@
     <!--Main Activity-->
     <string name="btn_new_image">Snap and Analyse a new image</string>
     <string name="btn_saved_images">View saved images</string>
+    
+    <!--Single Image Activity-->
+    <string name="loading_error_message">Unable to analyse this image. Please try again.</string>
+    
 </resources>
