@@ -1,6 +1,7 @@
 package com.example.omar.snapsearch.utils;
 
 import android.net.Uri;
+import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -45,7 +46,27 @@ public class VisionUtils {
         return builder.build().toString();
     }
 
-//    TODO: Implement a method to parse JSON.
-//    TODO: Possibly create a Serializable object to hold result data.
+    public static ArrayList<String> parseResultsJSON(String resultsJSON) {
+        try {
+            JSONObject resultsObj = new JSONObject(resultsJSON);
+
+            JSONObject resultsDescObj = resultsObj.getJSONObject("description");
+            JSONArray resultsDescTags = resultsDescObj.getJSONArray("tags");
+//            JSONArray resultsDescCaptions = resultsObj.getJSONArray("captions");
+
+            ArrayList<String> resultsList = new ArrayList<String>();
+            for (int i = 0; i < resultsDescTags.length(); i++) {
+                if (i == 10) {
+                    break;
+                }
+                String resultsTag = resultsDescTags.getString(i);
+                resultsList.add(resultsTag);
+            }
+            Log.d("lol", resultsList.toString());
+            return resultsList;
+        } catch (JSONException e) {
+            return null;
+        }
+    }
 
 }
