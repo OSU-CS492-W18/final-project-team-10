@@ -36,7 +36,7 @@ public class SingleImageActivity extends AppCompatActivity
         mImageView = findViewById(R.id.iv_image);
         mLoadingErrorMessage = findViewById(R.id.tv_loading_error);
         mLoadingProgressBar = findViewById(R.id.pb_loading_indicator);
-        mButtonLayout = findViewById(R.id.ll_button_layout);
+        mButtonLayout = findViewById(R.id.ll_linear_layout);
 
         Bundle extras = getIntent().getExtras();
         mImageByteArray = extras.getByteArray("image");

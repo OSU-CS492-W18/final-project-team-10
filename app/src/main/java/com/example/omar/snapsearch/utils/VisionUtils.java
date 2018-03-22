@@ -2,6 +2,12 @@ package com.example.omar.snapsearch.utils;
 
 import android.net.Uri;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
 
 /**
  * Created by omar on 21/03/18.
@@ -21,7 +27,7 @@ public class VisionUtils {
 
     public final static String VISION_PARAM_NAME_VISUAL_FEATURES = "visualFeatures";
     public final static String VISION_PARAM_VALUE_VISUAL_FEATURES =
-            "Categories,Tags,Description,Faces,ImageType,Color,Adult"; // Change to tailor response data.
+            "Categories,Tags,Description,Faces,Color,Adult"; // Change to tailor response data.
     public final static String VISION_PARAM_NAME_DETAILS = "details";
     public final static String VISION_PARAM_VALUE_DETAILS =
             "Celebrities,Landmarks";
