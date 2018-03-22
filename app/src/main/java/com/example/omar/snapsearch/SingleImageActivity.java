@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -23,6 +24,7 @@ public class SingleImageActivity extends AppCompatActivity
     private ImageView mImageView;
     private TextView mLoadingErrorMessage;
     private ProgressBar mLoadingProgressBar;
+    private LinearLayout mButtonLayout;
 
     public byte[] mImageByteArray;
 
@@ -34,6 +36,7 @@ public class SingleImageActivity extends AppCompatActivity
         mImageView = findViewById(R.id.iv_image);
         mLoadingErrorMessage = findViewById(R.id.tv_loading_error);
         mLoadingProgressBar = findViewById(R.id.pb_loading_indicator);
+        mButtonLayout = findViewById(R.id.ll_button_layout);
 
         Bundle extras = getIntent().getExtras();
         mImageByteArray = extras.getByteArray("image");

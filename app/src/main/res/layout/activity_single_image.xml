@@ -18,34 +18,91 @@
     <ImageView
         android:id="@+id/iv_image"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
+        android:layout_marginBottom="10dp"
         android:layout_gravity="center"/>
 
-    <FrameLayout
-        android:layout_width="match_parent"
+    <ScrollView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-        
-        <TextView
-            android:id="@+id/tv_loading_error"
+
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:padding="16dp"
-            android:text="@string/loading_error_message"
-            android:visibility="invisible"/>
+            android:layout_height="wrap_content">
 
-        <ProgressBar
-            android:id="@+id/pb_loading_indicator"
-            android:layout_width="72dp"
-            android:layout_height="72dp"
-            android:layout_marginTop="32dp"
-            android:layout_gravity="top|center_horizontal"
-            android:visibility="invisible"/>
+            <TextView
+                android:id="@+id/tv_loading_error"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:text="@string/loading_error_message"
+                android:textSize="20sp"
+                android:visibility="invisible" />
 
-        <!--TODO: Create a new element to display results.-->
+            <ProgressBar
+                android:id="@+id/pb_loading_indicator"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:visibility="invisible" />
 
+            <LinearLayout
+                android:id="@+id/ll_button_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_marginVertical="30dp"
+                android:visibility="visible">
 
-    </FrameLayout>
+                <Button
+                    android:id="@+id/btn_0"
+                    android:layout_width="300dp"
+                    android:layout_height="80dp"
+                    android:text="A" />
+
+                <Button
+                    android:id="@+id/btn_1"
+                    android:layout_width="300dp"
+                    android:layout_height="80dp"
+                    android:text="B" />
+
+                <Button
+                    android:id="@+id/btn_2"
+                    android:layout_width="300dp"
+                    android:layout_height="80dp"
+                    android:text="C" />
+
+                <Button
+                    android:id="@+id/btn_3"
+                    android:layout_width="300dp"
+                    android:layout_height="80dp"
+                    android:text="D" />
+
+                <Button
+                    android:id="@+id/btn_4"
+                    android:layout_width="300dp"
+                    android:layout_height="80dp"
+                    android:text="E" />
+
+                <Button
+                    android:id="@+id/btn_5"
+                    android:layout_width="300dp"
+                    android:layout_height="80dp"
+                    android:text="F" />
+
+                <Button
+                    android:id="@+id/btn_6"
+                    android:layout_width="300dp"
+                    android:layout_height="80dp"
+                    android:text="G" />
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+    </ScrollView>
 
 </LinearLayout>
 
