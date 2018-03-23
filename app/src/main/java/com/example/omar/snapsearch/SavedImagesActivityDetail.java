@@ -33,7 +33,7 @@ public class SavedImagesActivityDetail extends AppCompatActivity {
 
         mDB = dbHelper.getWritableDatabase();
 
-        mIVImageResultSaved.setOnClickListener(new View.OnClickListener() {
+        /*mIVImageResultSaved.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mIsSaved = !mIsSaved;
@@ -41,7 +41,7 @@ public class SavedImagesActivityDetail extends AppCompatActivity {
                     addImageToDB();
                 }
             }
-        });
+        });*/
     }
 
     @Override

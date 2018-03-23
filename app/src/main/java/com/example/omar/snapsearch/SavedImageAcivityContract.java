@@ -9,8 +9,8 @@ import android.provider.BaseColumns;
 public class SavedImageAcivityContract {
     private SavedImageAcivityContract() {}
     public static class SavedImage implements BaseColumns{
-        final static String TABLE_NAME = "Saved Image";
-        final static String COLUMN_IMAGE_BLOB = "image";
+        final static String TABLE_NAME = "SavedImage";
+        final static String COLUMN_IMAGE_BLOB = "description";
         final static String COLUMN_TIMESTAMP = "timestamp";
     }
 }
