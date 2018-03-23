@@ -7,6 +7,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
@@ -35,6 +36,11 @@ public class VisionUtils {
     public final static String VISION_PARAM_NAME_LANGUAGE = "language";
     public final static String VISION_PARAM_VALUE_LANGUAGE =
             "en";
+
+    public static class ImageResult implements Serializable{
+        public String Name;
+        public String Blob;
+    }
 
     public static String buildVisionURL() {
         String baseURLString = VISION_URL_PROTOCOL + VISION_LOCATION_VALUE + VISION_URL_DOMAIN;

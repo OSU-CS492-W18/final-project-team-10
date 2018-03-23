@@ -1,6 +1,7 @@
 package com.example.omar.snapsearch;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.provider.MediaStore;
@@ -18,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
 
     private Button mNewImageButton;
     private Button mSavedImagesButton;
+
+    private SQLiteDatabase mDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +43,10 @@ public class MainActivity extends AppCompatActivity {
                 dispatchSavedImagesActivityIntent();
             }
         });
+
+        SavedImageActivityDB dbHelp = new SavedImageActivityDB(this);
+        mDB = dbHelp.getReadableDatabase();
+
     }
 
     private void dispatchSavedImagesActivityIntent() {
