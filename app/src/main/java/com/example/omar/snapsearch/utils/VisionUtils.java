@@ -58,7 +58,7 @@ public class VisionUtils {
             JSONObject resultsDescObj = resultsObj.getJSONObject("description");
             JSONArray resultsDescTags = resultsDescObj.getJSONArray("tags");
 //            JSONArray resultsDescCaptions = resultsObj.getJSONArray("captions");
-            JSONArray resultsItem = resultsObj.getJSONArray("image");
+//            JSONArray resultsItem = resultsObj.getJSONArray("image");
 
             ArrayList<String> resultsList = new ArrayList<String>();
             for (int i = 0; i < resultsDescTags.length(); i++) {
@@ -66,9 +66,9 @@ public class VisionUtils {
                     break;
                 }
                 String resultsTag = resultsDescTags.getString(i);
-                ImageResult result = new ImageResult();
-                JSONObject resultItem = resultsItem.getJSONObject(i);
-                result.Blob = resultItem.getString("image_blob");
+//                ImageResult result = new ImageResult();
+//                JSONObject resultItem = resultsItem.getJSONObject(i);
+//                result.Blob = resultItem.getString("image_blob");
 
                 resultsList.add(resultsTag);
             }
