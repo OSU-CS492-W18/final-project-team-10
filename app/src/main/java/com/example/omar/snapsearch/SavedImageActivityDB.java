@@ -21,8 +21,8 @@ public class SavedImageActivityDB extends SQLiteOpenHelper{
         final String SQL_CREATE_SAVED_IMAGE =
         "CREATE TABLE " + SavedImageAcivityContract.SavedImage.TABLE_NAME + "(" +
                 SavedImageAcivityContract.SavedImage._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                SavedImageAcivityContract.SavedImage.COLUMN_IMAGE_NAME + " TEXT NOT NULL, " +
                 SavedImageAcivityContract.SavedImage.COLUMN_IMAGE_BLOB + " BLOB" +
+                SavedImageAcivityContract.SavedImage.COLUMN_TIMESTAMP + " TIMESTAMP DEFAULT CURRENT_TIMESTAMP" +
                 ");";
         db.execSQL(SQL_CREATE_SAVED_IMAGE);
     }

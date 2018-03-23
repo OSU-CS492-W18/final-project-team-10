@@ -1,50 +1,48 @@
 package com.example.omar.snapsearch;
 
-import android.content.ContentValues;
+import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.content.Intent;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 
 import com.example.omar.snapsearch.utils.VisionUtils;
 
-public class SavedImagesActivity extends AppCompatActivity {
+import java.util.ArrayList;
 
-    private TextView mTVImageResultName;
-    private TextView getmTVImageResultBlob;
-    private ImageView mIVImageResultSaved;
+/**
+ * Created by Kenon on 3/22/18.
+ */
 
-    private boolean mIsSaved = false;
-
-    private VisionUtils.ImageResult mImageResult;
+public class SavedImagesActivity extends AppCompatActivity implements SnapSearchAdapter.onImageItemClickListener {
+    private RecyclerView mSavedImageResultsRV;
+    private SnapSearchAdapter mAdapter;
 
     private SQLiteDatabase mDB;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_saved_images);
+        setContentView(R.layout.saved_images_activity);
 
-        mTVImageResultName = findViewById(R.id.tv_image_result_name);
-        getmTVImageResultBlob = findViewById(R.id.tv_image_result_blob);
+        mSavedImageResultsRV = findViewById(R.id.rv_saved_image_results);
+        mSavedImageResultsRV.setLayoutManager(new LinearLayoutManager(this));
+        mSavedImageResultsRV.setHasFixedSize(true);
 
         SavedImageActivityDB dbHelper = new SavedImageActivityDB(this);
+        mDB = dbHelper.getReadableDatabase();
 
-        mDB = dbHelper.getWritableDatabase();
+        mAdapter = new SnapSearchAdapter(this);
+        mAdapter.updateImageResults(getAllSavedImagesFromDB());
+        mSavedImageResultsRV.setAdapter(mAdapter);
+    }
 
-        mIVImageResultSaved.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mIsSaved = !mIsSaved;
-                if (mIsSaved) {
-                    addImageToDB();
-                } else {
-                    deleteImageFromDB();
-                }
-            }
-        });
+    @Override
+    public void onImageItemClick(VisionUtils.ImageResult imageResult) {
+        Intent detailedSearchResultIntent = new Intent(this, SavedImagesActivityDetail.class);
+        startActivity(detailedSearchResultIntent);
     }
 
     @Override
@@ -53,22 +51,26 @@ public class SavedImagesActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
-    private long addImageToDB(){
-        if(mImageResult != null) {
-            ContentValues row = new ContentValues();
-            row.put(SavedImageAcivityContract.SavedImage.COLUMN_IMAGE_NAME, mImageResult.Name);
-            row.put(SavedImageAcivityContract.SavedImage.COLUMN_IMAGE_BLOB, mImageResult.Blob);
-            return mDB.insert(SavedImageAcivityContract.SavedImage.TABLE_NAME, null, row);
-        }else{
-            return -1;
-        }
-    }
+    private ArrayList<VisionUtils.ImageResult> getAllSavedImagesFromDB() {
+        Cursor cursor = mDB.query(
+                SavedImageAcivityContract.SavedImage.TABLE_NAME,
+                null,
+                null,
+                null,
+                null,
+                null,
+                SavedImageAcivityContract.SavedImage.COLUMN_TIMESTAMP + " DESC"
+        );
 
-    private void deleteImageFromDB() {
-        if (mImageResult != null) {
-            String sqlSelection = SavedImageAcivityContract.SavedImage.COLUMN_IMAGE_NAME + " = ?";
-            String[] sqlSelectionArgs = { mImageResult.Name };
-            mDB.delete(SavedImageAcivityContract.SavedImage.TABLE_NAME, sqlSelection, sqlSelectionArgs);
+        ArrayList<VisionUtils.ImageResult> savedImageResults = new ArrayList<>();
+        while (cursor.moveToNext()) {
+            VisionUtils.ImageResult imageResult = new VisionUtils.ImageResult();
+            imageResult.Blob = cursor.getString(
+                    cursor.getColumnIndex(SavedImageAcivityContract.SavedImage.COLUMN_IMAGE_BLOB)
+            );
+            savedImageResults.add(imageResult);
         }
+        cursor.close();
+        return savedImageResults;
     }
 }

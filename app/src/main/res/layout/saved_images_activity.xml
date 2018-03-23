@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.omar.snapsearch.SavedImagesActivity">
+    tools:context="com.example.omar.snapsearch.SavedImagesActivityDetail">
 
     <TextView
         android:id="@+id/tv_image_result_name"
@@ -20,6 +20,11 @@
         android:layout_height="wrap_content"
         android:textSize="40sp"
         android:textColor="#000"
-        android:layout_marginLeft="16dp"/>/>
+        android:layout_marginLeft="16dp"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_saved_image_results"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </LinearLayout>

@@ -3,13 +3,11 @@ package com.example.omar.snapsearch;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 
 import java.io.ByteArrayOutputStream;
 
@@ -48,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void dispatchSavedImagesActivityIntent() {
-        Intent savedImagesActivityIntent = new Intent(this, SavedImagesActivity.class);
+        Intent savedImagesActivityIntent = new Intent(this, SavedImagesActivityDetail.class);
         startActivity(savedImagesActivityIntent);
     }
 
