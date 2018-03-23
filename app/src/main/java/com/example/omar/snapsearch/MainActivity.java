@@ -44,8 +44,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        SavedImageActivityDB dbHelp = new SavedImageActivityDB(this);
-        mDB = dbHelp.getReadableDatabase();
 
     }
 

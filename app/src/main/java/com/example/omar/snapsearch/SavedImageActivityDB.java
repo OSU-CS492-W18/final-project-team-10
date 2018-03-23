@@ -19,8 +19,8 @@ public class SavedImageActivityDB extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db){
         final String SQL_CREATE_SAVED_IMAGE =
-                "CREATE TABLE " + SavedImageAcivityContract.SavedImage.TABLE_NAME + "(" +
-                SavedImageAcivityContract.SavedImage._ID + "INTEGER PRIMARY KEY AUTOINCREMENT, " +
+        "CREATE TABLE " + SavedImageAcivityContract.SavedImage.TABLE_NAME + "(" +
+                SavedImageAcivityContract.SavedImage._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 SavedImageAcivityContract.SavedImage.COLUMN_IMAGE_NAME + " TEXT NOT NULL, " +
                 SavedImageAcivityContract.SavedImage.COLUMN_IMAGE_BLOB + " BLOB" +
                 ");";
@@ -30,7 +30,6 @@ public class SavedImageActivityDB extends SQLiteOpenHelper{
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
         db.execSQL("DROP TABLE IF EXISTS " + SavedImageAcivityContract.SavedImage.TABLE_NAME);
-        onCreate(db);
         onCreate(db);
     }
 
