@@ -6,15 +6,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.omar.snapsearch.SavedImagesActivityDetail">
+    tools:context="com.example.omar.snapsearch.SavedImagesActivityDetail"
+    android:background="#000000">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Saved Images Activity"
-        android:textSize="30sp"
-        android:layout_margin="20dp"
-        android:layout_gravity="center"/>
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="300dp"
+        android:layout_height="120dp"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/title_savedimages" />
 
     <LinearLayout
         android:layout_width="match_parent"
