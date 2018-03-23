@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -15,7 +16,68 @@
         android:layout_margin="20dp"
         android:layout_gravity="center"/>
 
-    <!--RecyclerView-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:baselineAligned="false">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".8"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/image_thumbnail"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_centerInParent="true"
+                app:srcCompat="@android:drawable/ic_menu_gallery" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.2"
+            android:layout_gravity="center">
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_height="wrap_content"
+                android:layout_width="110dp"
+                android:layout_marginLeft="5dp"
+                android:text="One"/>
+            <Button
+                android:id="@+id/button2"
+                android:layout_toRightOf="@+id/button1"
+                android:layout_height="wrap_content"
+                android:layout_width="110dp"
+                android:layout_marginRight="5dp"
+                android:text="Two"/>
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_height="wrap_content"
+                android:layout_width="110dp"
+                android:layout_below="@+id/button1"
+                android:layout_alignLeft="@+id/button1"
+                android:layout_alignStart="@+id/button1"
+                android:text="Three"/>
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_toRightOf="@+id/button3"
+                android:layout_height="wrap_content"
+                android:layout_width="110dp"
+                android:layout_below="@+id/button2"
+                android:layout_marginRight="5dp"
+                android:text="Four"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
 
 
 </LinearLayout>
